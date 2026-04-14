@@ -1,10 +1,10 @@
 /* =============================================
-   SENA ORUCU — Portfolio Styles
+   SENA ORUCU â€” Portfolio Styles
    ============================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;1,14..32,300;1,14..32,400&display=swap');
 
-/* ── Reset & Base ── */
+/* â”€â”€ Reset & Base â”€â”€ */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -53,14 +53,14 @@ img {
   max-width: 100%;
 }
 
-/* ── Layout ── */
+/* â”€â”€ Layout â”€â”€ */
 .container {
   max-width: var(--max-w);
   margin: 0 auto;
   padding: 0 2rem;
 }
 
-/* ── NAV ── */
+/* â”€â”€ NAV â”€â”€ */
 nav {
   position: fixed;
   top: 0;
@@ -160,7 +160,7 @@ nav.scrolled {
   border-color: var(--text);
 }
 
-/* ── Hamburger ── */
+/* â”€â”€ Hamburger â”€â”€ */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -227,7 +227,7 @@ nav.scrolled {
   color: var(--text);
 }
 
-/* ── FOOTER ── */
+/* â”€â”€ FOOTER â”€â”€ */
 footer {
   border-top: 1px solid var(--border);
   padding: 2rem 0;
@@ -264,17 +264,17 @@ footer {
   color: var(--text);
 }
 
-/* ── Page wrapper ── */
+/* â”€â”€ Page wrapper â”€â”€ */
 main {
   padding-top: var(--nav-h);
 }
 
-/* ── Section spacing ── */
+/* â”€â”€ Section spacing â”€â”€ */
 section {
   padding: 5rem 0;
 }
 
-/* ── Typography ── */
+/* â”€â”€ Typography â”€â”€ */
 .display-heading {
   font-size: clamp(2.5rem, 5.5vw, 4.25rem);
   font-weight: 300;
@@ -299,7 +299,7 @@ section {
   margin-bottom: 0.75rem;
 }
 
-/* ── Buttons ── */
+/* â”€â”€ Buttons â”€â”€ */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -336,7 +336,7 @@ section {
   transform: translateY(-2px);
 }
 
-/* ── PROJECT CARDS ── */
+/* â”€â”€ PROJECT CARDS â”€â”€ */
 .project-card {
   background: var(--bg);
   border: 1px solid var(--border);
@@ -359,15 +359,15 @@ section {
 
 .card-image {
   width: 100%;
-  height: 220px;
+  aspect-ratio: 2 / 1;
   background: var(--surface);
   position: relative;
   overflow: hidden;
 }
 
 .card-image-inner {
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  inset: 0;
   background: linear-gradient(135deg, #f0f0f0 0%, #e8e8e8 100%);
   display: flex;
   align-items: center;
@@ -388,7 +388,7 @@ section {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
+  object-position: center center;
   display: block;
   transition: transform 0.4s var(--ease);
 }
@@ -437,7 +437,7 @@ section {
   gap: 0.6rem;
 }
 
-/* ── Fade in animation ── */
+/* â”€â”€ Fade in animation â”€â”€ */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -447,20 +447,20 @@ section {
   animation: fadeUp 0.7s var(--ease) both;
 }
 
-/* ── Stagger helpers ── */
+/* â”€â”€ Stagger helpers â”€â”€ */
 .delay-1 { animation-delay: 0.1s; }
 .delay-2 { animation-delay: 0.2s; }
 .delay-3 { animation-delay: 0.3s; }
 .delay-4 { animation-delay: 0.4s; }
 .delay-5 { animation-delay: 0.5s; }
 
-/* ── Transition for card reveal ── */
+/* â”€â”€ Transition for card reveal â”€â”€ */
 .project-card {
   transition: opacity 0.5s var(--ease), transform 0.5s var(--ease),
               box-shadow 0.3s var(--ease);
 }
 
-/* ── Responsive ── */
+/* â”€â”€ Responsive â”€â”€ */
 @media (max-width: 768px) {
   .nav-links { display: none; }
   .hamburger { display: flex; }
