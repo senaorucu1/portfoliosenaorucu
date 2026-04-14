@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="About Sena Orucu — Senior Product Designer specialising in AI, Fintech, and Traveltech." />
+  <meta name="description" content="About Sena Orucu — Senior Product Designer based in Barcelona, specialising in AI, Fintech, and Traveltech." />
   <title>About — Sena Orucu</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="stylesheet" href="styles.css" />
   <style>
-    /* ── ABOUT-SPECIFIC ── */
     .about-hero {
       padding: 4.5rem 0 3.5rem;
     }
@@ -24,20 +23,29 @@
     }
 
     .about-bio {
-      font-size: 1.0625rem;
-      color: var(--text-secondary);
-      line-height: 1.8;
       max-width: 640px;
     }
 
-    /* Divider */
+    .about-bio p {
+      font-size: 1.0625rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 1.25rem;
+    }
+
+    .about-bio p:last-child { margin-bottom: 0; }
+
+    .about-bio strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
     .about-divider {
       height: 1px;
       background: var(--border);
       margin: 4rem 0;
     }
 
-    /* Skills & Tools section */
     .skills-section {
       padding-top: 0;
       padding-bottom: 3rem;
@@ -60,9 +68,6 @@
 
     .skills-list {
       list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
     }
 
     .skills-list li {
@@ -73,29 +78,26 @@
       border-bottom: 1px solid var(--border);
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      justify-content: space-between;
       transition: padding-left 0.2s var(--ease);
     }
 
-    .skills-list li:first-child {
-      border-top: 1px solid var(--border);
+    .skills-list li:first-child { border-top: 1px solid var(--border); }
+
+    .skills-list li:hover { padding-left: 0.5rem; }
+
+    /* Skill category label */
+    .skill-cat {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      background: var(--surface);
+      border-radius: 100px;
+      padding: 0.15rem 0.5rem;
     }
 
-    .skills-list li::before {
-      content: '';
-      display: block;
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: var(--text-secondary);
-      flex-shrink: 0;
-    }
-
-    .skills-list li:hover {
-      padding-left: 0.5rem;
-    }
-
-    /* CTA section */
     .about-cta {
       padding: 4rem 0;
       background: var(--surface);
@@ -126,11 +128,7 @@
     }
 
     @media (max-width: 640px) {
-      .skills-grid {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-      }
-
+      .skills-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .about-hero { padding: 3rem 0 2.5rem; }
       .about-cta { padding: 2.5rem 1.5rem; }
     }
@@ -138,7 +136,6 @@
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">Sena Orucu</a>
@@ -153,7 +150,6 @@
     </div>
   </nav>
 
-  <!-- MOBILE MENU -->
   <div class="mobile-menu">
     <a href="projects.html">Projects</a>
     <a href="about.html">About</a>
@@ -162,40 +158,45 @@
 
   <main>
 
-    <!-- ABOUT HERO -->
     <section class="about-hero">
       <div class="container">
         <p class="section-label fade-up">About</p>
         <h1 class="fade-up delay-1">Hey, I'm Sena 👋</h1>
-        <p class="about-bio fade-up delay-2">
-          I'm a Senior Product Designer with over 6 years of experience building digital products across AI, Fintech, Traveltech, and global marketplaces. I thrive at the intersection of research, systems thinking, and pixel-perfect craft — turning complex problems into intuitive, purposeful experiences. I've worked with cross-functional teams across Europe, Asia, and Latin America, collaborating closely with engineers, researchers, and business stakeholders to bring products from zero to one. I care deeply about accessibility, design systems, and the humans behind every click.
-        </p>
+
+        <div class="about-bio fade-up delay-2">
+          <p>
+            I'm a <strong>Senior Product Designer</strong> based in Barcelona with 6+ years of experience building digital products across AI, Fintech, Traveltech, and global marketplaces. I've shipped work used by millions of people across Europe, Asia, and Latin America.
+          </p>
+          <p>
+            I work best at the intersection of <strong>research, systems thinking, and craft</strong> — turning complex, ambiguous problems into experiences that feel obvious in hindsight. I've taken products from zero to one and scaled them across markets, collaborating closely with engineers, PMs, and business stakeholders throughout.
+          </p>
+          <p>
+            I care deeply about <strong>accessibility, design systems, and the humans behind every click</strong>. Currently open to Senior or Lead Product Design roles — in-person in Barcelona or remote with a strong team.
+          </p>
+        </div>
 
         <div class="about-divider fade-up delay-3"></div>
       </div>
     </section>
 
-    <!-- SKILLS & TOOLS -->
     <section class="skills-section">
       <div class="container">
         <div class="skills-grid fade-up delay-3">
 
-          <!-- Skills -->
           <div class="skills-col">
             <h3>Skills</h3>
             <ul class="skills-list">
-              <li>Product Design</li>
-              <li>Service Design</li>
-              <li>Design Systems</li>
-              <li>User Research</li>
-              <li>Prototyping</li>
-              <li>UI Design</li>
-              <li>Facilitation</li>
-              <li>Branding</li>
+              <li>Product Design <span class="skill-cat">Core</span></li>
+              <li>User Research <span class="skill-cat">Core</span></li>
+              <li>Design Systems <span class="skill-cat">Core</span></li>
+              <li>UI Design <span class="skill-cat">Core</span></li>
+              <li>Service Design <span class="skill-cat">Strategy</span></li>
+              <li>Prototyping <span class="skill-cat">Execution</span></li>
+              <li>Facilitation <span class="skill-cat">Leadership</span></li>
+              <li>Branding <span class="skill-cat">Creative</span></li>
             </ul>
           </div>
 
-          <!-- Tools -->
           <div class="skills-col">
             <h3>Tools</h3>
             <ul class="skills-list">
@@ -212,12 +213,11 @@
       </div>
     </section>
 
-    <!-- CTA -->
     <section style="padding: 1rem 0 5rem;">
       <div class="container">
         <div class="about-cta fade-up delay-4">
-          <h2>Let's work together</h2>
-          <p>I'm currently open to new opportunities. Let's talk.</p>
+          <h2>Let's build something together</h2>
+          <p>Open to Senior & Lead Product Design roles in Barcelona or remote. Let's talk.</p>
           <div class="cta-actions">
             <a href="Sena_Orucu_CV.pdf" target="_blank" class="btn btn-primary">
               Download CV
@@ -226,7 +226,7 @@
               </svg>
             </a>
             <a href="https://www.linkedin.com/in/senaorucu/" target="_blank" class="btn btn-outline">
-              LinkedIn ↗
+              Connect on LinkedIn ↗
             </a>
           </div>
         </div>
@@ -235,10 +235,9 @@
 
   </main>
 
-  <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
-      <span class="footer-name">Sena Orucu</span>
+      <span class="footer-name">Sena Orucu · Barcelona, Spain</span>
       <div class="footer-links">
         <a href="https://www.linkedin.com/in/senaorucu/" target="_blank">LinkedIn ↗</a>
       </div>
