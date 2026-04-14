@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="About Sena Orucu — Senior Product Designer specialising in AI, Fintech, and Traveltech." />
+  <title>About — Sena Orucu</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ── ABOUT-SPECIFIC ── */
+    .about-hero {
+      padding: 4.5rem 0 3.5rem;
+    }
+
+    .about-hero h1 {
+      font-size: clamp(2.25rem, 5vw, 3.5rem);
+      font-weight: 300;
+      letter-spacing: -0.035em;
+      line-height: 1.1;
+      margin-bottom: 2rem;
+    }
+
+    .about-bio {
+      font-size: 1.0625rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      max-width: 640px;
+    }
+
+    /* Divider */
+    .about-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 4rem 0;
+    }
+
+    /* Skills & Tools section */
+    .skills-section {
+      padding-top: 0;
+      padding-bottom: 3rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem 5rem;
+    }
+
+    .skills-col h3 {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 1.25rem;
+    }
+
+    .skills-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .skills-list li {
+      font-size: 1.0625rem;
+      font-weight: 400;
+      color: var(--text);
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: padding-left 0.2s var(--ease);
+    }
+
+    .skills-list li:first-child {
+      border-top: 1px solid var(--border);
+    }
+
+    .skills-list li::before {
+      content: '';
+      display: block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--text-secondary);
+      flex-shrink: 0;
+    }
+
+    .skills-list li:hover {
+      padding-left: 0.5rem;
+    }
+
+    /* CTA section */
+    .about-cta {
+      padding: 4rem 0;
+      background: var(--surface);
+      border-radius: 20px;
+      text-align: center;
+      margin: 1rem 0 2rem;
+    }
+
+    .about-cta h2 {
+      font-size: 1.625rem;
+      font-weight: 300;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.75rem;
+    }
+
+    .about-cta p {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+    }
+
+    .cta-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 640px) {
+      .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .about-hero { padding: 3rem 0 2.5rem; }
+      .about-cta { padding: 2.5rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Sena Orucu</a>
+      <ul class="nav-links">
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="cv.pdf" target="_blank" class="cv-link">CV</a></li>
+      </ul>
+      <button class="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu">
+    <a href="projects.html">Projects</a>
+    <a href="about.html">About</a>
+    <a href="cv.pdf" target="_blank">CV ↗</a>
+  </div>
+
+  <main>
+
+    <!-- ABOUT HERO -->
+    <section class="about-hero">
+      <div class="container">
+        <p class="section-label fade-up">About</p>
+        <h1 class="fade-up delay-1">Hey, I'm Sena 👋</h1>
+        <p class="about-bio fade-up delay-2">
+          I'm a Senior Product Designer with over 6 years of experience building digital products across AI, Fintech, Traveltech, and global marketplaces. I thrive at the intersection of research, systems thinking, and pixel-perfect craft — turning complex problems into intuitive, purposeful experiences. I've worked with cross-functional teams across Europe, Asia, and Latin America, collaborating closely with engineers, researchers, and business stakeholders to bring products from zero to one. I care deeply about accessibility, design systems, and the humans behind every click.
+        </p>
+
+        <div class="about-divider fade-up delay-3"></div>
+      </div>
+    </section>
+
+    <!-- SKILLS & TOOLS -->
+    <section class="skills-section">
+      <div class="container">
+        <div class="skills-grid fade-up delay-3">
+
+          <!-- Skills -->
+          <div class="skills-col">
+            <h3>Skills</h3>
+            <ul class="skills-list">
+              <li>Product Design</li>
+              <li>Service Design</li>
+              <li>Design Systems</li>
+              <li>User Research</li>
+              <li>Prototyping</li>
+              <li>UI Design</li>
+              <li>Facilitation</li>
+              <li>Branding</li>
+            </ul>
+          </div>
+
+          <!-- Tools -->
+          <div class="skills-col">
+            <h3>Tools</h3>
+            <ul class="skills-list">
+              <li>Figma</li>
+              <li>Maze</li>
+              <li>Miro</li>
+              <li>Notion</li>
+              <li>Pitch</li>
+              <li>Framer</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section style="padding: 1rem 0 5rem;">
+      <div class="container">
+        <div class="about-cta fade-up delay-4">
+          <h2>Let's work together</h2>
+          <p>I'm currently open to new opportunities. Let's talk.</p>
+          <div class="cta-actions">
+            <a href="cv.pdf" target="_blank" class="btn btn-primary">
+              Download CV
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M7 1v9M3 7l4 4 4-4M2 13h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="https://linkedin.com" target="_blank" class="btn btn-outline">
+              LinkedIn ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-name">Sena Orucu</span>
+      <div class="footer-links">
+        <a href="https://linkedin.com" target="_blank">LinkedIn ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
