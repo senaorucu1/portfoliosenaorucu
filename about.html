@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="About Sena Orucu — Senior Product Designer based in Barcelona, specialising in AI, Fintech, and Traveltech." />
+  <meta name="description" content="About Sena Orucu — Senior Product Designer based in Barcelona." />
   <title>About — Sena Orucu</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="favicon.ico" sizes="any" />
@@ -11,127 +11,191 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="stylesheet" href="styles.css" />
   <style>
+    /* ── About hero ── */
     .about-hero {
-      padding: 4.5rem 0 3.5rem;
+      padding: 5rem 0 4rem;
+    }
+
+    .about-hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
     }
 
     .about-hero h1 {
-      font-size: clamp(2.25rem, 5vw, 3.5rem);
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 5.5vw, 5rem);
       font-weight: 300;
-      letter-spacing: -0.035em;
-      line-height: 1.1;
-      margin-bottom: 2rem;
+      letter-spacing: -0.01em;
+      line-height: 1.05;
+      margin-bottom: 2.5rem;
     }
 
-    .about-bio {
-      max-width: 640px;
+    .about-hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    /* Pull quote */
+    .pull-quote {
+      font-family: var(--font-display);
+      font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--text);
+      border-left: 2px solid var(--accent);
+      padding-left: 1.5rem;
+      margin-bottom: 2.5rem;
     }
 
     .about-bio p {
-      font-size: 1.0625rem;
-      color: var(--text-secondary);
-      line-height: 1.8;
+      font-size: 0.9375rem;
+      color: var(--secondary);
+      line-height: 1.85;
       margin-bottom: 1.25rem;
     }
 
     .about-bio p:last-child { margin-bottom: 0; }
+    .about-bio strong { color: var(--text); font-weight: 500; }
 
-    .about-bio strong {
-      color: var(--text);
-      font-weight: 500;
-    }
-
+    /* ── Divider ── */
     .about-divider {
       height: 1px;
       background: var(--border);
-      margin: 4rem 0;
+      margin: 4.5rem 0;
     }
 
-    .skills-section {
-      padding-top: 0;
-      padding-bottom: 3rem;
-    }
+    /* ── Skills ── */
+    .skills-section { padding-top: 0; padding-bottom: 3rem; }
 
     .skills-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem 5rem;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
     }
 
+    .skills-col {
+      padding: 2rem 1.75rem;
+      border-right: 1px solid var(--border);
+    }
+
+    .skills-col:last-child { border-right: none; }
+
     .skills-col h3 {
-      font-size: 0.75rem;
+      font-size: 0.6875rem;
       font-weight: 500;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--text-secondary);
+      color: var(--secondary);
       margin-bottom: 1.25rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
     }
 
-    .skills-list {
-      list-style: none;
-    }
+    .skills-list { list-style: none; }
 
     .skills-list li {
-      font-size: 1.0625rem;
+      font-family: var(--font-display);
+      font-size: 1.05rem;
       font-weight: 400;
       color: var(--text);
-      padding: 0.75rem 0;
-      border-bottom: 1px solid var(--border);
-      display: flex;
+      padding: 0.45rem 0;
+      transition: color 0.2s, padding-left 0.2s var(--ease);
+      cursor: default;
+    }
+
+    .skills-list li:hover {
+      color: var(--accent);
+      padding-left: 0.4rem;
+    }
+
+    /* ── CTA section ── */
+    .about-cta-section {
+      padding: 1rem 0 5rem;
+    }
+
+    .cta-card {
+      background: var(--text);
+      color: #fff;
+      border-radius: 16px;
+      padding: 4rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
       align-items: center;
-      justify-content: space-between;
-      transition: padding-left 0.2s var(--ease);
     }
 
-    .skills-list li:first-child { border-top: 1px solid var(--border); }
-
-    .skills-list li:hover { padding-left: 0.5rem; }
-
-    /* Skill category label */
-    .skill-cat {
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--text-secondary);
-      background: var(--surface);
-      border-radius: 100px;
-      padding: 0.15rem 0.5rem;
-    }
-
-    .about-cta {
-      padding: 4rem 0;
-      background: var(--surface);
-      border-radius: 20px;
-      text-align: center;
-      margin: 1rem 0 2rem;
-    }
-
-    .about-cta h2 {
-      font-size: 1.625rem;
+    .cta-card h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 3.5vw, 3rem);
       font-weight: 300;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.01em;
+      line-height: 1.15;
       margin-bottom: 0.75rem;
     }
 
-    .about-cta p {
+    .cta-card h2 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .cta-card p {
       font-size: 0.9375rem;
-      color: var(--text-secondary);
-      margin-bottom: 2rem;
+      opacity: 0.6;
     }
 
     .cta-actions {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 0.75rem;
+      flex-shrink: 0;
     }
 
-    @media (max-width: 640px) {
-      .skills-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .about-hero { padding: 3rem 0 2.5rem; }
-      .about-cta { padding: 2.5rem 1.5rem; }
+    .btn-white {
+      background: #fff;
+      color: var(--text);
+      border: 1px solid #fff;
+    }
+
+    .btn-white:hover {
+      background: var(--surface);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.3);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255,255,255,0.1);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 960px) {
+      .about-hero-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .skills-col:nth-child(2) { border-right: none; }
+      .skills-col:nth-child(3) { border-top: 1px solid var(--border); }
+      .skills-col:nth-child(4) { border-top: 1px solid var(--border); border-right: none; }
+      .cta-card { grid-template-columns: 1fr; gap: 2rem; }
+      .cta-actions { flex-direction: row; }
+    }
+
+    @media (max-width: 580px) {
+      .about-hero { padding: 3.5rem 0 3rem; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .skills-col { border-right: none; border-top: 1px solid var(--border); }
+      .skills-col:first-child { border-top: none; }
+      .cta-card { padding: 2.5rem 1.75rem; }
+      .cta-actions { flex-direction: column; }
     }
   </style>
 </head>
@@ -158,55 +222,97 @@
   </div>
 
   <main>
-
     <section class="about-hero">
       <div class="container">
-        <p class="section-label fade-up">About</p>
-        <h1 class="fade-up delay-1">Hey, I'm Sena 👋</h1>
+        <p class="section-label fade-up"><span class="accent-line"></span>About</p>
+        <div class="about-hero-grid">
 
-        <div class="about-bio fade-up delay-2">
-          <p>
-            I'm a <strong>Senior Product Designer</strong> based in Barcelona with 6+ years of experience building digital products across AI, Fintech, Traveltech, and global marketplaces. I've shipped work used by millions of people across Europe, Asia, and Latin America.
-          </p>
-          <p>
-            I work best at the intersection of <strong>research, systems thinking, and craft</strong> — turning complex, ambiguous problems into experiences that feel obvious in hindsight. I've taken products from zero to one and scaled them across markets, collaborating closely with engineers, PMs, and business stakeholders throughout.
-          </p>
-          <p>
-            I care deeply about <strong>accessibility, design systems, and the humans behind every click</strong>. Currently open to Senior or Lead Product Design roles — in-person in Barcelona or remote with a strong team.
-          </p>
+          <div>
+            <h1 class="fade-up delay-1">
+              Hey, I'm<br>Sena <em>👋</em>
+            </h1>
+            <div class="about-bio fade-up delay-2">
+              <p>
+                I'm a <strong>Senior Product Designer</strong> based in Barcelona with 6+ years of experience building digital products across AI, Fintech, Traveltech, and global marketplaces. I've shipped work used by millions of people across Europe, Asia, and Latin America.
+              </p>
+              <p>
+                I work best at the intersection of <strong>research, systems thinking, and craft</strong> — turning complex, ambiguous problems into experiences that feel obvious in hindsight.
+              </p>
+              <p>
+                I care deeply about <strong>accessibility, design systems, and the humans behind every click</strong>. Currently open to Senior or Lead Product Design roles in Barcelona or remote.
+              </p>
+            </div>
+          </div>
+
+          <div class="fade-up delay-2">
+            <blockquote class="pull-quote">
+              "Turning complex problems into experiences that feel obvious in hindsight."
+            </blockquote>
+            <div class="hero-stats" style="display:flex; gap:2rem; padding-top:2rem; border-top:1px solid var(--border);">
+              <div>
+                <div style="font-family:var(--font-display);font-size:2.5rem;font-weight:300;letter-spacing:-0.02em;line-height:1;">6+</div>
+                <div style="font-size:0.75rem;color:var(--secondary);letter-spacing:0.05em;margin-top:0.25rem;">Years experience</div>
+              </div>
+              <div>
+                <div style="font-family:var(--font-display);font-size:2.5rem;font-weight:300;letter-spacing:-0.02em;line-height:1;">3</div>
+                <div style="font-size:0.75rem;color:var(--secondary);letter-spacing:0.05em;margin-top:0.25rem;">Continents</div>
+              </div>
+              <div>
+                <div style="font-family:var(--font-display);font-size:2.5rem;font-weight:300;letter-spacing:-0.02em;line-height:1;">∞</div>
+                <div style="font-size:0.75rem;color:var(--secondary);letter-spacing:0.05em;margin-top:0.25rem;">Curious questions</div>
+              </div>
+            </div>
+          </div>
+
         </div>
 
         <div class="about-divider fade-up delay-3"></div>
       </div>
     </section>
 
+    <!-- Skills & Tools -->
     <section class="skills-section">
       <div class="container">
-        <div class="skills-grid fade-up delay-3">
+        <p class="section-label fade-up" style="margin-bottom:1.5rem;"><span class="accent-line"></span>Skills &amp; Tools</p>
+        <div class="skills-grid fade-up delay-1">
 
           <div class="skills-col">
-            <h3>Skills</h3>
+            <h3>Core Design</h3>
             <ul class="skills-list">
-              <li>Product Design <span class="skill-cat">Core</span></li>
-              <li>User Research <span class="skill-cat">Core</span></li>
-              <li>Design Systems <span class="skill-cat">Core</span></li>
-              <li>UI Design <span class="skill-cat">Core</span></li>
-              <li>Service Design <span class="skill-cat">Strategy</span></li>
-              <li>Prototyping <span class="skill-cat">Execution</span></li>
-              <li>Facilitation <span class="skill-cat">Leadership</span></li>
-              <li>Branding <span class="skill-cat">Creative</span></li>
+              <li>Product Design</li>
+              <li>UI Design</li>
+              <li>Design Systems</li>
+              <li>Prototyping</li>
             </ul>
           </div>
 
           <div class="skills-col">
-            <h3>Tools</h3>
+            <h3>Research</h3>
+            <ul class="skills-list">
+              <li>User Research</li>
+              <li>Service Design</li>
+              <li>Facilitation</li>
+              <li>Branding</li>
+            </ul>
+          </div>
+
+          <div class="skills-col">
+            <h3>Design Tools</h3>
             <ul class="skills-list">
               <li>Figma</li>
-              <li>Maze</li>
+              <li>Framer</li>
               <li>Miro</li>
+              <li>Maze</li>
+            </ul>
+          </div>
+
+          <div class="skills-col">
+            <h3>Workflow</h3>
+            <ul class="skills-list">
               <li>Notion</li>
               <li>Pitch</li>
-              <li>Framer</li>
+              <li>Jira</li>
+              <li>Slack</li>
             </ul>
           </div>
 
@@ -214,26 +320,28 @@
       </div>
     </section>
 
-    <section style="padding: 1rem 0 5rem;">
+    <!-- CTA -->
+    <section class="about-cta-section">
       <div class="container">
-        <div class="about-cta fade-up delay-4">
-          <h2>Let's build something together</h2>
-          <p>Open to Senior & Lead Product Design roles in Barcelona or remote. Let's talk.</p>
+        <div class="cta-card fade-up">
+          <div>
+            <h2>Let's build something<br><em>remarkable</em> together</h2>
+            <p>Open to Senior & Lead Product Design roles in Barcelona or remote.</p>
+          </div>
           <div class="cta-actions">
-            <a href="Sena_Orucu_CV.pdf" target="_blank" class="btn btn-primary">
+            <a href="Sena_Orucu_CV.pdf" target="_blank" class="btn btn-white">
               Download CV
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
                 <path d="M7 1v9M3 7l4 4 4-4M2 13h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </a>
-            <a href="https://www.linkedin.com/in/senaorucu/" target="_blank" class="btn btn-outline">
-              Connect on LinkedIn ↗
+            <a href="https://www.linkedin.com/in/senaorucu/" target="_blank" class="btn btn-ghost">
+              LinkedIn ↗
             </a>
           </div>
         </div>
       </div>
     </section>
-
   </main>
 
   <footer>
@@ -246,8 +354,6 @@
   </footer>
 
   <script src="main.js"></script>
-
-  <!-- GoatCounter Analytics -->
   <script data-goatcounter="https://senaorucu.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
