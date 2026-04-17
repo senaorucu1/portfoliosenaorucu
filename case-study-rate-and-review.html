@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Rate & Review — OLX Group. A trust & safety case study by Sena Orucu." />
+  <title>Rate & Review — Case Study · Sena Orucu</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+
+    /* ── Case study hero ── */
+    .cs-hero {
+      padding: 5rem 0 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cs-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      margin-bottom: 3rem;
+      transition: color 0.2s, gap 0.2s;
+    }
+
+    .cs-back:hover { color: var(--text); gap: 0.75rem; }
+
+    .cs-hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.75rem;
+      flex-wrap: wrap;
+    }
+
+    .cs-tag {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.8rem;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+    }
+
+    .cs-tag.accent {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .cs-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.75rem, 6vw, 5.5rem);
+      font-weight: 300;
+      letter-spacing: -0.01em;
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+      max-width: 800px;
+    }
+
+    .cs-hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .cs-hero-sub {
+      font-size: 1.125rem;
+      color: var(--secondary);
+      line-height: 1.7;
+      max-width: 600px;
+      margin-bottom: 3.5rem;
+    }
+
+    /* Stats bar */
+    .cs-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--border);
+      margin-top: 0;
+    }
+
+    .cs-stat {
+      padding: 2rem 0;
+      border-right: 1px solid var(--border);
+    }
+
+    .cs-stat:last-child { border-right: none; }
+
+    .cs-stat-label {
+      font-size: 0.6875rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      margin-bottom: 0.5rem;
+    }
+
+    .cs-stat-value {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    /* ── Hero image ── */
+    .cs-cover {
+      width: 100%;
+      aspect-ratio: 21/9;
+      overflow: hidden;
+      border-radius: 0 0 16px 16px;
+    }
+
+    .cs-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    /* ── Content sections ── */
+    .cs-content {
+      padding: 5rem 0;
+    }
+
+    .cs-section {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 4rem;
+      padding: 4rem 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .cs-section:first-child { border-top: none; padding-top: 0; }
+
+    .cs-section-label {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      padding-top: 0.35rem;
+      position: relative;
+    }
+
+    .cs-section-label::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .cs-section-body {}
+
+    .cs-section-body h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 3vw, 2.75rem);
+      font-weight: 300;
+      letter-spacing: -0.01em;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+
+    .cs-section-body h2 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .cs-section-body p {
+      font-size: 1rem;
+      color: var(--secondary);
+      line-height: 1.85;
+      margin-bottom: 1.25rem;
+      max-width: 640px;
+    }
+
+    .cs-section-body p strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .cs-section-body p:last-child { margin-bottom: 0; }
+
+    /* Highlight block */
+    .cs-highlight {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 1.5rem 2rem;
+      margin: 2rem 0;
+      max-width: 640px;
+    }
+
+    .cs-highlight p {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--text) !important;
+      line-height: 1.5;
+      margin: 0 !important;
+    }
+
+    /* Three column insight cards */
+    .cs-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin: 2.5rem 0;
+    }
+
+    .cs-card {
+      background: var(--surface);
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+
+    .cs-card-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .cs-card h4 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .cs-card p {
+      font-size: 0.875rem !important;
+      margin: 0 !important;
+      max-width: none !important;
+    }
+
+    /* Process steps */
+    .cs-process {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 2.5rem 0;
+    }
+
+    .cs-step {
+      padding: 1.75rem 1.5rem;
+      border-right: 1px solid var(--border);
+      position: relative;
+    }
+
+    .cs-step:last-child { border-right: none; }
+
+    .cs-step-num {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--accent);
+      opacity: 0.4;
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    .cs-step h4 {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .cs-step p {
+      font-size: 0.8125rem !important;
+      margin: 0 !important;
+      max-width: none !important;
+    }
+
+    /* Outcome numbers */
+    .cs-outcomes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+    }
+
+    .cs-outcome {
+      padding: 2rem;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .cs-outcome-num {
+      font-family: var(--font-display);
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .cs-outcome-label {
+      font-size: 0.875rem;
+      color: var(--secondary);
+      line-height: 1.5;
+    }
+
+    /* Full-width image */
+    .cs-image-full {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 2.5rem 0;
+      border: 1px solid var(--border);
+    }
+
+    .cs-image-full img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Next project CTA */
+    .cs-next {
+      border-top: 1px solid var(--border);
+      padding: 4rem 0;
+    }
+
+    .cs-next-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .cs-next-label {
+      font-size: 0.6875rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      margin-bottom: 0.5rem;
+    }
+
+    .cs-next-title {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 300;
+      letter-spacing: -0.01em;
+      transition: color 0.2s;
+    }
+
+    .cs-next-title:hover { color: var(--accent); }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .cs-section { grid-template-columns: 1fr; gap: 1.5rem; }
+      .cs-stats { grid-template-columns: repeat(2, 1fr); }
+      .cs-stat { border-bottom: 1px solid var(--border); }
+      .cs-cards { grid-template-columns: 1fr; }
+      .cs-process { grid-template-columns: repeat(2, 1fr); }
+      .cs-step:nth-child(2) { border-right: none; }
+      .cs-step:nth-child(3) { border-top: 1px solid var(--border); }
+      .cs-step:nth-child(4) { border-top: 1px solid var(--border); border-right: none; }
+      .cs-outcomes { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 580px) {
+      .cs-hero { padding: 4rem 0 0; }
+      .cs-stats { grid-template-columns: 1fr 1fr; }
+      .cs-process { grid-template-columns: 1fr; }
+      .cs-step { border-right: none; border-top: 1px solid var(--border); }
+      .cs-step:first-child { border-top: none; }
+      .cs-next-inner { flex-direction: column; gap: 1.5rem; align-items: flex-start; }
+      .cs-cover { aspect-ratio: 16/9; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Sena Orucu</a>
+      <ul class="nav-links">
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="Sena_Orucu_CV.pdf" target="_blank" class="cv-link">CV</a></li>
+      </ul>
+      <button class="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu">
+    <a href="projects.html">Projects</a>
+    <a href="about.html">About</a>
+    <a href="Sena_Orucu_CV.pdf" target="_blank">CV ↗</a>
+  </div>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="cs-hero">
+      <div class="container">
+
+        <a href="projects.html" class="cs-back fade-up">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M13 7H1M1 7l6-6M1 7l6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          All projects
+        </a>
+
+        <div class="cs-hero-meta fade-up delay-1">
+          <span class="cs-tag accent">OLX Group</span>
+          <span class="cs-tag">Fintech</span>
+          <span class="cs-tag">Marketplace</span>
+          <span class="cs-tag">2022</span>
+        </div>
+
+        <h1 class="fade-up delay-1">
+          Building <em>trust</em><br>at marketplace scale
+        </h1>
+
+        <p class="cs-hero-sub fade-up delay-2">
+          Designing a peer-to-peer Rate & Review system for OLX — one of the world's largest classifieds platforms — rolled out across Turkey, India, and Indonesia.
+        </p>
+
+        <!-- Stats bar -->
+        <div class="cs-stats fade-up delay-3">
+          <div class="cs-stat">
+            <div class="cs-stat-label">My Role</div>
+            <div class="cs-stat-value">Lead Product Designer</div>
+          </div>
+          <div class="cs-stat">
+            <div class="cs-stat-label">Markets</div>
+            <div class="cs-stat-value">Turkey · India · Indonesia</div>
+          </div>
+          <div class="cs-stat">
+            <div class="cs-stat-label">Timeline</div>
+            <div class="cs-stat-value">2022 · 6 months</div>
+          </div>
+          <div class="cs-stat">
+            <div class="cs-stat-label">Platform</div>
+            <div class="cs-stat-value">iOS · Android · Web</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Cover image -->
+      <div class="container" style="padding-top:2.5rem;">
+        <div class="cs-cover fade-up delay-3">
+          <img src="rate_and_review.png" alt="Rate & Review — OLX" />
+        </div>
+      </div>
+
+    </section>
+
+    <!-- CONTENT -->
+    <div class="cs-content">
+      <div class="container">
+
+        <!-- Overview -->
+        <div class="cs-section">
+          <div class="cs-section-label fade-up">Overview</div>
+          <div class="cs-section-body fade-up delay-1">
+            <h2>The problem with trust in<br><em>peer-to-peer commerce</em></h2>
+            <p>
+              OLX operates as a classifieds marketplace where millions of people buy and sell second-hand goods daily. Unlike e-commerce platforms with centralised fulfilment, OLX transactions happen between strangers — which means <strong>trust is the product.</strong>
+            </p>
+            <p>
+              Without a reputation system, buyers had no way to verify if a seller was reliable, and sellers had no way to prove their track record. Fraud, no-shows, and misleading listings eroded confidence and suppressed transaction completion rates across all three markets.
+            </p>
+            <div class="cs-highlight">
+              <p>"How might we help OLX users build reputation and confidence so that more people transact — and come back?"</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Research -->
+        <div class="cs-section">
+          <div class="cs-section-label fade-up">Research</div>
+          <div class="cs-section-body fade-up delay-1">
+            <h2>Understanding distrust<br>across <em>three cultures</em></h2>
+            <p>
+              Each market presented a distinct relationship with trust and peer reviews. We ran contextual interviews, diary studies, and competitive analysis across Turkey, India, and Indonesia to uncover key behavioural patterns.
+            </p>
+
+            <div class="cs-cards">
+              <div class="cs-card">
+                <div class="cs-card-icon">🇹🇷</div>
+                <h4>Turkey</h4>
+                <p>High concern around scams. Users relied heavily on WhatsApp chats before meeting. Price negotiation culture made reviews feel socially awkward.</p>
+              </div>
+              <div class="cs-card">
+                <div class="cs-card-icon">🇮🇳</div>
+                <h4>India</h4>
+                <p>Strong community trust signals. Users checked seller profile age and listing history before engaging. Fear of fake reviews was a key concern.</p>
+              </div>
+              <div class="cs-card">
+                <div class="cs-card-icon">🇮🇩</div>
+                <h4>Indonesia</h4>
+                <p>Reputation is deeply social. Sellers with longer profiles felt more credible. Users expected both buyer and seller to be able to review each other.</p>
+              </div>
+            </div>
+
+            <p>
+              Three themes emerged consistently: users wanted <strong>verified reviews</strong> (tied to real transactions, not self-reported), <strong>reciprocal trust</strong> (both parties reviewed), and <strong>transparency</strong> (visible history without exposing personal data).
+            </p>
+          </div>
+        </div>
+
+        <!-- Process -->
+        <div class="cs-section">
+          <div class="cs-section-label fade-up">Process</div>
+          <div class="cs-section-body fade-up delay-1">
+            <h2>From insight to<br><em>shipped feature</em></h2>
+            <p>
+              We followed a double-diamond process adapted for a multi-market rollout — designing a core system flexible enough to accommodate cultural nuances without fracturing the codebase.
+            </p>
+
+            <div class="cs-process">
+              <div class="cs-step">
+                <div class="cs-step-num">01</div>
+                <h4>Discover</h4>
+                <p>Interviews, diary studies, competitor teardowns across 3 markets. Defined trust taxonomy.</p>
+              </div>
+              <div class="cs-step">
+                <div class="cs-step-num">02</div>
+                <h4>Define</h4>
+                <p>Synthesised patterns into design principles. Scoped MVP with engineering to meet 6-month deadline.</p>
+              </div>
+              <div class="cs-step">
+                <div class="cs-step-num">03</div>
+                <h4>Design</h4>
+                <p>Iterated on 12+ flows covering rating, review display, profile reputation, and moderation.</p>
+              </div>
+              <div class="cs-step">
+                <div class="cs-step-num">04</div>
+                <h4>Deliver</h4>
+                <p>Ran usability tests per market, handed off annotated specs, supported QA through launch.</p>
+              </div>
+            </div>
+
+            <p>
+              The biggest design challenge was the <strong>review trigger moment</strong> — when to prompt a user to leave a review without being intrusive. We tested 4 different trigger points (post-chat, post-meet, 24h delay, and user-initiated) and landed on a <strong>soft prompt 24 hours after a marked transaction</strong> that felt natural without pressuring users.
+            </p>
+          </div>
+        </div>
+
+        <!-- Solution -->
+        <div class="cs-section">
+          <div class="cs-section-label fade-up">Solution</div>
+          <div class="cs-section-body fade-up delay-1">
+            <h2>A trust layer built<br>into the <em>core experience</em></h2>
+            <p>
+              The final design introduced a verified review system tied exclusively to completed transactions — meaning only users who had actually interacted could leave feedback. This was key to building credibility.
+            </p>
+            <p>
+              Each user profile gained a <strong>trust score</strong> surfaced as a star rating with a review count, alongside verification badges (phone, email, Google) and a transaction history timeline. Reviews were bilateral — both buyer and seller could rate each other — with a blind review mechanic preventing retaliatory ratings.
+            </p>
+
+            <div class="cs-image-full">
+              <img src="rate_and_review.png" alt="Rate & Review interface" />
+            </div>
+
+            <p>
+              To handle cultural nuance, <strong>review prompts were localised</strong> per market — more direct in Turkey, more relationship-focused in Indonesia. The rating scale used a 3-tier positive/neutral/negative model rather than 5 stars, which tested better across all three markets for clarity.
+            </p>
+          </div>
+        </div>
+
+        <!-- Outcomes -->
+        <div class="cs-section">
+          <div class="cs-section-label fade-up">Outcomes</div>
+          <div class="cs-section-body fade-up delay-1">
+            <h2>Impact across<br><em>three markets</em></h2>
+            <p>
+              The Rate & Review feature launched across Turkey, India, and Indonesia within the 6-month target. Early adoption showed strong organic engagement — users were motivated to build reputation without explicit incentivisation.
+            </p>
+
+            <div class="cs-outcomes">
+              <div class="cs-outcome">
+                <div class="cs-outcome-num">3</div>
+                <div class="cs-outcome-label">Markets launched simultaneously across Turkey, India & Indonesia</div>
+              </div>
+              <div class="cs-outcome">
+                <div class="cs-outcome-num">iOS<br>Android<br>Web</div>
+                <div class="cs-outcome-label" style="font-size:0.75rem;">Shipped across all platforms from a single design system</div>
+              </div>
+              <div class="cs-outcome">
+                <div class="cs-outcome-num">6mo</div>
+                <div class="cs-outcome-label">From research kick-off to production launch — on time</div>
+              </div>
+            </div>
+
+            <p>
+              Beyond metrics, the project established OLX's first cross-market <strong>trust design framework</strong> — a set of principles and reusable components that could be extended to future safety features across the platform's 40+ markets.
+            </p>
+          </div>
+        </div>
+
+        <!-- Learnings -->
+        <div class="cs-section">
+          <div class="cs-section-label fade-up">Reflections</div>
+          <div class="cs-section-body fade-up delay-1">
+            <h2>What I <em>learned</em></h2>
+            <p>
+              Designing for trust across cultures taught me that <strong>there is no universal UX pattern for safety</strong>. What feels reassuring in one market can feel invasive or unnecessary in another. The research phase wasn't just due diligence — it was the foundation the entire system was built on.
+            </p>
+            <p>
+              Working with engineering across three timezones also pushed me to invest heavily in <strong>documentation and annotation</strong> — the design spec wasn't just a handoff artefact, it was a communication tool that needed to work without me in the room.
+            </p>
+            <div class="cs-highlight">
+              <p>"The best trust features are invisible when they work — users just feel safe, without knowing why."</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Next project -->
+    <div class="cs-next">
+      <div class="container">
+        <div class="cs-next-inner">
+          <div>
+            <p class="cs-next-label">Next Project</p>
+            <a href="https://pitch.com/v/ama-rxrxyv" target="_blank" class="cs-next-title">
+              AMA – Agentic Agent for Travel →
+            </a>
+          </div>
+          <a href="projects.html" class="btn btn-outline">All projects</a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-name">Sena Orucu · Barcelona, Spain</span>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/senaorucu/" target="_blank">LinkedIn ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script data-goatcounter="https://senaorucu.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
