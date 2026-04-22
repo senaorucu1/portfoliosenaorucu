@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AMA – Agentic Agent for Travel. An AI product design case study by Sena Orucu." />
+  <title>AMA – Agentic Agent for Travel · Sena Orucu</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ── Case study hero ── */
+    .cs-hero {
+      padding: 5rem 0 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cs-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      margin-bottom: 3rem;
+      transition: color 0.2s, gap 0.2s;
+    }
+
+    .cs-back:hover { color: var(--text); gap: 0.75rem; }
+
+    .cs-hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.75rem;
+      flex-wrap: wrap;
+    }
+
+    .cs-tag {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.8rem;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+    }
+
+    .cs-tag.accent {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .cs-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.75rem, 6vw, 5.5rem);
+      font-weight: 300;
+      letter-spacing: -0.01em;
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+      max-width: 820px;
+    }
+
+    .cs-hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .cs-hero-sub {
+      font-size: 1.125rem;
+      color: var(--secondary);
+      line-height: 1.7;
+      max-width: 620px;
+      margin-bottom: 3.5rem;
+    }
+
+    .cs-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--border);
+    }
+
+    .cs-stat {
+      padding: 2rem 0;
+      border-right: 1px solid var(--border);
+    }
+
+    .cs-stat:last-child { border-right: none; }
+
+    .cs-stat-label {
+      font-size: 0.6875rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      margin-bottom: 0.5rem;
+    }
+
+    .cs-stat-value {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    .cs-cover {
+      width: 100%;
+      aspect-ratio: 21/9;
+      overflow: hidden;
+      border-radius: 0 0 16px 16px;
+    }
+
+    .cs-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    /* ── Content ── */
+    .cs-content { padding: 5rem 0; }
+
+    .cs-section {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 4rem;
+      padding: 4rem 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .cs-section:first-child { border-top: none; padding-top: 0; }
+
+    .cs-section-label {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      padding-top: 0.35rem;
+    }
+
+    .cs-section-label::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .cs-section-body h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 3vw, 2.75rem);
+      font-weight: 300;
+      letter-spacing: -0.01em;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+
+    .cs-section-body h2 em { font-style: italic; color: var(--accent); }
+
+    .cs-section-body p {
+      font-size: 1rem;
+      color: var(--secondary);
+      line-height: 1.85;
+      margin-bottom: 1.25rem;
+      max-width: 640px;
+    }
+
+    .cs-section-body p strong { color: var(--text); font-weight: 500; }
+    .cs-section-body p:last-child { margin-bottom: 0; }
+
+    .cs-highlight {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 1.5rem 2rem;
+      margin: 2rem 0;
+      max-width: 640px;
+    }
+
+    .cs-highlight p {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--text) !important;
+      line-height: 1.5;
+      margin: 0 !important;
+      max-width: none !important;
+    }
+
+    /* Persona cards */
+    .cs-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin: 2.5rem 0;
+    }
+
+    .cs-card {
+      background: var(--surface);
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+
+    .cs-card-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+
+    .cs-card h4 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .cs-card p {
+      font-size: 0.875rem !important;
+      margin: 0 !important;
+      max-width: none !important;
+    }
+
+    /* Process steps */
+    .cs-process {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 2.5rem 0;
+    }
+
+    .cs-step {
+      padding: 1.75rem 1.5rem;
+      border-right: 1px solid var(--border);
+    }
+
+    .cs-step:last-child { border-right: none; }
+
+    .cs-step-num {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--accent);
+      opacity: 0.4;
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    .cs-step h4 {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .cs-step p {
+      font-size: 0.8125rem !important;
+      margin: 0 !important;
+      max-width: none !important;
+    }
+
+    /* Outcomes */
+    .cs-outcomes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+    }
+
+    .cs-outcome {
+      padding: 2rem;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .cs-outcome-num {
+      font-family: var(--font-display);
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .cs-outcome-label {
+      font-size: 0.875rem;
+      color: var(--secondary);
+      line-height: 1.5;
+    }
+
+    /* Full-width image */
+    .cs-image-full {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 2.5rem 0;
+      border: 1px solid var(--border);
+    }
+
+    .cs-image-full img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Two column comparison */
+    .cs-compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin: 2.5rem 0;
+    }
+
+    .cs-compare-col {
+      padding: 1.75rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .cs-compare-col.before { background: var(--surface); }
+    .cs-compare-col.after  { background: var(--text); color: #fff; }
+
+    .cs-compare-col h4 {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      opacity: 0.5;
+    }
+
+    .cs-compare-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .cs-compare-col ul li {
+      font-size: 0.9375rem;
+      line-height: 1.5;
+      padding-left: 1.25rem;
+      position: relative;
+    }
+
+    .cs-compare-col ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 0.875rem;
+    }
+
+    .cs-compare-col.after ul li { color: rgba(255,255,255,0.85); }
+
+    /* Next project */
+    .cs-next {
+      border-top: 1px solid var(--border);
+      padding: 4rem 0;
+    }
+
+    .cs-next-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .cs-next-label {
+      font-size: 0.6875rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      margin-bottom: 0.5rem;
+    }
+
+    .cs-next-title {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 300;
+      letter-spacing: -0.01em;
+      transition: color 0.2s;
+    }
+
+    .cs-next-title:hover { color: var(--accent); }
+
+    @media (max-width: 900px) {
+      .cs-section { grid-template-columns: 1fr; gap: 1.5rem; }
+      .cs-stats { grid-template-columns: repeat(2, 1fr); }
+      .cs-stat { border-bottom: 1px solid var(--border); }
+      .cs-cards { grid-template-columns: 1fr; }
+      .cs-process { grid-template-columns: repeat(2, 1fr); }
+      .cs-step:nth-child(2) { border-right: none; }
+      .cs-step:nth-child(3) { border-top: 1px solid var(--border); }
+      .cs-step:nth-child(4) { border-top: 1px solid var(--border); border-right: none; }
+      .cs-outcomes { grid-template-columns: 1fr; }
+      .cs-compare { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 580px) {
+      .cs-hero { padding: 4rem 0 0; }
+      .cs-process { grid-template-columns: 1fr; }
+      .cs-step { border-right: none; border-top: 1px solid var(--border); }
+      .cs-step:first-child { border-top: none; }
+      .cs-next-inner { flex-direction: column; gap: 1.5rem; align-items: flex-start; }
+      .cs-cover { aspect-ratio: 16/9; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Sena Orucu</a>
+      <ul class="nav-links">
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="Sena_Orucu_CV.pdf" target="_blank" class="cv-link">CV</a></li>
+      </ul>
+      <button class="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu">
+    <a href="projects.html">Projects</a>
+    <a href="about.html">About</a>
+    <a href="Sena_Orucu_CV.pdf" target="_blank">CV ↗</a>
+  </div>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="cs-hero">
+      <div class="container">
+
+        <a href="projects.html" class="cs-back fade-up">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M13 7H1M1 7l6-6M1 7l6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          All projects
+        </a>
+
+        <div class="cs-hero-meta fade-up delay-1">
+          <span class="cs-tag accent">Acai Travel</span>
+          <span class="cs-tag">Traveltech</span>
+          <span class="cs-tag">AI Product</span>
+          <span class="cs-tag">2025</span>
+        </div>
+
+        <h1 class="fade-up delay-1">
+          Designing an <em>AI agent</em><br>for the travel industry
+        </h1>
+
+        <p class="cs-hero-sub fade-up delay-2">
+          AMA is an agentic AI assistant built for Acai Travel — enabling travel agents to query fare rules, supplier info, and GDS manuals in seconds, replacing hours of manual lookup.
+        </p>
+
+        <div class="cs-stats fade-up delay-3">
+          <div class="cs-stat">
+            <div class="cs-stat-label">My Role</div>
+            <div class="cs-stat-value">Lead Product Designer</div>
+          </div>
+          <div class="cs-stat">
+            <div class="cs-stat-label">Product Type</div>
+            <div class="cs-stat-value">Internal AI Tool</div>
+          </div>
+          <div class="cs-stat">
+            <div class="cs-stat-label">Timeline</div>
+            <div class="cs-stat-value">2025 · Ongoing</div>
+          </div>
+          <div class="cs-stat">
+            <div class="cs-stat-label">Platform</div>
+            <div class="cs-stat-value">Web App</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="container" style="padding-top:2.5rem;">
+        <div class="cs-cover fade-up delay-3">
+          <img src="AMA.png" alt="AMA – Agentic Agent for Travel" />
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTENT -->
+    <div class="cs-content">
+      <div class="container">
+
+        <!-- Overview -->
+        <div class="cs-section">
+          <div class="cs-section-label fade-up">Overview</div>
+          <div class="cs-section-body fade-up delay-1">
+            <h2>The hidden cost of<br><em>manual knowledge work</em></h2>
+            <p>
+              Travel agents at Acai spend a significant part of their day answering repetitive, high-stakes questions — What are the baggage rules on this fare? Can this ticket be name-corrected in Amadeus? What's the penalty for cancelling this Delta economy ticket?
+            </p>
+            <p>
+              The answers exist — scattered across airline fare manuals, GDS documentation, supplier PDFs, and internal wikis. But finding them takes <strong>5 to 30 minutes per query</strong>, pulling agents out of flow and creating bottlenecks during peak booking periods.
+            </p>
+            <div class="cs-highlight">
+              <p>"How might we give travel agents instant, reliable answers to complex fare and supplier questions — without replacing their expertise?"</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Research -->
+        <div class="cs-section">
+          <div class="cs-section-label fade-up">Research</div>
+          <div class="cs-section-body fade-up delay-1">
+            <h2>A day in the life of<br>a <em>travel agent</em></h2>
+            <p>
+              We ran contextual inquiry sessions, shadowing agents through their daily workflows. We also analysed support ticket logs and conducted structured interviews to understand the most common and costly knowledge gaps.
+            </p>
+
+            <div class="cs-cards">
+              <div class="cs-card">
+                <div class="cs-card-icon">⏱️</div>
+                <h4>Time lost</h4>
+                <p>Agents spent up to 40% of their day searching for answers across disconnected systems — manuals, Slack, email threads, GDS help docs.</p>
+              </div>
+              <div class="cs-card">
+                <div class="cs-card-icon">😰</div>
+                <h4>High stakes errors</h4>
+                <p>Misreading a fare rule or missing a name-correction window could mean hundreds of euros in airline penalties — agents were stressed and second-guessing themselves.</p>
+              </div>
+              <div class="cs-card">
+                <div class="cs-card-icon">🔁</div>
+                <h4>Repeated questions</h4>
+                <p>80% of questions were variations of the same 20 scenarios. Senior agents were constantly interrupted to answer questions junior agents couldn't find answers to.</p>
+              </div>
+            </div>
+
+            <p>
+              A key insight emerged: agents didn't want to be replaced by AI — they wanted a <strong>knowledgeable colleague on demand</strong>. Someone who knew the rules cold and could give a confident, citable answer instantly.
+            </p>
+          </div>
+        </div>
+
+        <!-- Process -->
+        <div class="cs-section">
+          <div class="cs-section-label fade-up">Process</div>
+          <div class="cs-section-body fade-up delay-1">
+            <h2>Designing for<br><em>trust in AI answers</em></h2>
+            <p>
+              The core design challenge wasn't the chat interface — it was making agents <strong>trust the answers enough to act on them</strong>. An AI that gives wrong fare advice can cause real financial harm. Confidence calibration and source transparency were central design problems.
+            </p>
+
+            <div class="cs-process">
+              <div class="cs-step">
+                <div class="cs-step-num">01</div>
+                <h4>Discovery</h4>
+                <p>Shadowing sessions, ticket log analysis, 12 agent interviews. Mapped the full knowledge-work journey.</p>
+              </div>
+              <div class="cs-step">
+                <div class="cs-step-num">02</div>
+                <h4>Framing</h4>
+                <p>Defined the AI's "personality" — confident but citable. Scoped MVP queries: fare rules, name corrections, cancellation penalties.</p>
+              </div>
+              <div class="cs-step">
+                <div class="cs-step-num">03</div>
+                <h4>Design</h4>
+                <p>Iterated on conversation UI, source citation patterns, suggested questions, and history architecture.</p>
+              </div>
+              <div class="cs-step">
+                <div class="cs-step-num">04</div>
+                <h4>Validate</h4>
+                <p>Weekly usability tests with real agents on real queries. Measured answer trust, time-to-action, and error rates.</p>
+              </div>
+            </div>
+
+            <p>
+              One of the most important design decisions was adding <strong>source citations</strong> to every answer — showing exactly which fare manual or GDS doc the answer came from. This single change dramatically increased agent confidence and willingness to act on AI responses without double-checking.
+            </p>
+          </div>
+        </div>
+
+        <!-- Solution -->
+        <div class="cs-section">
+          <div class="cs-section-label fade-up">Solution</div>
+          <div class="cs-section-body fade-up delay-1">
+            <h2>From hours of search<br>to <em>seconds of certainty</em></h2>
+            <p>
+              AMA is a conversational AI interface embedded in the Acai Travel platform. Agents type a question in natural language — exactly as they would ask a colleague — and receive a structured, source-cited answer in seconds.
+            </p>
+
+            <div class="cs-compare">
+              <div class="cs-compare-col before">
+                <h4>Before AMA</h4>
+                <ul>
+                  <li>Open 3–5 browser tabs of airline manuals</li>
+                  <li>Search GDS help documentation manually</li>
+                  <li>Ask a senior colleague on Slack</li>
+                  <li>Wait 5–30 minutes for an answer</li>
+                  <li>Still unsure if information is current</li>
+                </ul>
+              </div>
+              <div class="cs-compare-col after">
+                <h4>After AMA</h4>
+                <ul>
+                  <li>Type the question in natural language</li>
+                  <li>Get a structured answer in under 5 seconds</li>
+                  <li>See the exact source cited inline</li>
+                  <li>Browse related follow-up questions</li>
+                  <li>Return to full chat history anytime</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="cs-image-full">
+              <img src="AMA.png" alt="AMA interface" />
+            </div>
+
+            <p>
+              The interface was designed around <strong>three core moments</strong>: the empty state (onboarding agents with suggested questions), the active query (clean, focused input with GDS booking code support), and the answer state (structured response with expandable source citations and follow-up suggestions).
+            </p>
+          </div>
+        </div>
+
+        <!-- Outcomes -->
+        <div class="cs-section">
+          <div class="cs-section-label fade-up">Outcomes</div>
+          <div class="cs-section-body fade-up delay-1">
+            <h2>Faster answers,<br><em>more confident</em> agents</h2>
+            <p>
+              AMA launched as an internal tool for the Acai Travel operations team. Early usage data and qualitative feedback showed significant impact on daily workflow and agent confidence.
+            </p>
+
+            <div class="cs-outcomes">
+              <div class="cs-outcome">
+                <div class="cs-outcome-num">&lt;5s</div>
+                <div class="cs-outcome-label">Average time to answer — down from 5–30 minutes of manual search</div>
+              </div>
+              <div class="cs-outcome">
+                <div class="cs-outcome-num">80%</div>
+                <div class="cs-outcome-label">Of recurring query types covered in the initial MVP scope</div>
+              </div>
+              <div class="cs-outcome">
+                <div class="cs-outcome-num">↓</div>
+                <div class="cs-outcome-label">Significant reduction in senior agent interruptions for routine knowledge queries</div>
+              </div>
+            </div>
+
+            <p>
+              Beyond efficiency, the biggest shift was cultural — <strong>agents started trusting the tool</strong>. The source citation feature was the deciding factor. Agents said they felt like AMA "showed its work", which made them confident enough to act without a second opinion.
+            </p>
+          </div>
+        </div>
+
+        <!-- Reflections -->
+        <div class="cs-section">
+          <div class="cs-section-label fade-up">Reflections</div>
+          <div class="cs-section-body fade-up delay-1">
+            <h2>Designing AI that<br>earns <em>trust</em></h2>
+            <p>
+              This project shifted how I think about AI product design. The interface is almost trivial — a chat box and a response. The real design work happens in the <strong>edges of uncertainty</strong>: what happens when the AI doesn't know? When confidence is low? When the source is ambiguous?
+            </p>
+            <p>
+              Designing those failure modes with the same care as the happy path is what separates an AI product agents trust from one they abandon after the first wrong answer.
+            </p>
+            <div class="cs-highlight">
+              <p>"AI interfaces aren't just about speed — they're about building enough trust that people are willing to stake their professional judgment on the answer."</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Next project -->
+    <div class="cs-next">
+      <div class="container">
+        <div class="cs-next-inner">
+          <div>
+            <p class="cs-next-label">Next Project</p>
+            <a href="case-study-rate-and-review.html" class="cs-next-title">
+              Rate &amp; Review — OLX →
+            </a>
+          </div>
+          <a href="projects.html" class="btn btn-outline">All projects</a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-name">Sena Orucu · Barcelona, Spain</span>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/senaorucu/" target="_blank">LinkedIn ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script data-goatcounter="https://senaorucu.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
