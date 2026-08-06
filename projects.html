@@ -1,269 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Projects by Sena Orucu — Senior Product Designer based in Barcelona." />
-  <title>Projects — Sena Orucu</title>
-  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <link rel="icon" href="favicon.ico" sizes="any" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
-  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-  <link rel="stylesheet" href="styles.css" />
-  <style>
-    .page-hero {
-      padding: 5rem 0 4rem;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 4rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .page-hero-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: end;
-    }
-
-    .page-hero h1 {
-      font-family: var(--font-display);
-      font-size: clamp(3rem, 5.5vw, 5rem);
-      font-weight: 300;
-      letter-spacing: -0.01em;
-      line-height: 1.05;
-      margin-bottom: 0;
-    }
-
-    .page-hero h1 em {
-      font-style: italic;
-      color: var(--accent);
-    }
-
-    .page-hero-right {
-      padding-bottom: 0.5rem;
-    }
-
-    .page-hero p {
-      font-size: 1rem;
-      color: var(--secondary);
-      line-height: 1.75;
-      max-width: 400px;
-    }
-
-    /* Project count badge */
-    .project-count {
-      font-family: var(--font-display);
-      font-size: 0.9375rem;
-      font-weight: 300;
-      font-style: italic;
-      color: var(--secondary);
-      margin-bottom: 1rem;
-    }
-
-    .projects-section { padding-top: 0; }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-
-    /* Colour accents per category */
-    .card-image[data-type="fintech"] .card-image-inner   { background: #f0f0f0; }
-    .card-image[data-type="travel"] .card-image-inner    { background: #efefef; }
-    .card-image[data-type="ai"] .card-image-inner        { background: #f2f2f2; }
-    .card-image[data-type="health"] .card-image-inner    { background: #eeeeee; }
-    .card-image[data-type="business"] .card-image-inner  { background: #f1f1f1; }
-    .card-image[data-type="dashboard"] .card-image-inner { background: #efefef; }
-
-    /* Accent top border on hover */
-    .project-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: var(--accent);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s var(--ease);
-    }
-
-    .project-card { position: relative; }
-    .project-card:hover::before { transform: scaleX(1); }
-
-    @media (max-width: 960px) {
-      .projects-grid { grid-template-columns: repeat(2, 1fr); }
-      .page-hero-inner { grid-template-columns: 1fr; gap: 2rem; }
-    }
-
-    @media (max-width: 580px) {
-      .projects-grid { grid-template-columns: 1fr; }
-      .page-hero { padding: 3.5rem 0 3rem; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — Sena Orucu</title>
+<meta name="description" content="Projects by Sena Orucu — Senior Product Designer based in Barcelona.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
+<div class="cursor" id="cursor"></div>
+<div class="cursor-label" id="cursorLabel"></div>
+
+<header>
+  <a href="/index.html" class="logo magnetic">Sena Orucu</a>
   <nav>
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo">Sena Orucu</a>
-      <ul class="nav-links">
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="Sena_Orucu_CV.pdf" target="_blank" class="cv-link">CV</a></li>
-      </ul>
-      <button class="hamburger" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
+    <ul>
+      <li><a href="/projects.html" class="magnetic active">Projects</a></li>
+      <li><a href="/about.html" class="magnetic">About</a></li>
+      <li><a href="/Sena_Orucu_CV.pdf" class="magnetic">CV ↗</a></li>
+    </ul>
   </nav>
+</header>
 
-  <div class="mobile-menu">
-    <a href="projects.html">Projects</a>
-    <a href="about.html">About</a>
-    <a href="Sena_Orucu_CV.pdf" target="_blank">CV ↗</a>
+<section class="hero compact">
+  <p class="hero-eyebrow"><span class="dot"></span> Selected work</p>
+  <div class="headline-wrap" id="headlineWrap">
+    <h1>
+      <span class="line"><b>Designed with</b></span>
+      <span class="line"><b><em>purpose,</em></b></span>
+      <span class="line"><b>built to last</b></span>
+    </h1>
   </div>
+  <p class="hero-sub">Work across AI, Fintech, Traveltech, and global marketplaces — from zero-to-one features shipped at scale to service design for healthcare.</p>
+  <div class="hero-meta">
+    <div class="stat"><b>06</b><span>Case studies</span></div>
+  </div>
+</section>
 
-  <main>
-    <div class="page-hero">
-      <div class="container">
-        <div class="page-hero-inner">
-          <div>
-            <p class="section-label fade-up"><span class="accent-line"></span>Selected Work</p>
-            <h1 class="fade-up delay-1">
-              Designed<br>with <em>purpose,</em><br>built to last
-            </h1>
-          </div>
-          <div class="page-hero-right fade-up delay-2">
-            <p class="project-count">06 case studies</p>
-            <p>Work across AI, Fintech, Traveltech, and global marketplaces — from zero-to-one features shipped at scale to service design for healthcare.</p>
-          </div>
-        </div>
+<section id="all-work">
+  <div class="project-grid">
+
+    <a href="/case-study-rate-and-review.html" class="project-card wide magnetic reveal" data-label="OPEN">
+      <div class="thumb"><img src="/rate_and_review.png" alt="Rate &amp; Review — OLX" loading="lazy"></div>
+      <div class="body">
+        <span class="work-tag">OLX Group · Fintech · Marketplace · 2022</span>
+        <h3>Rate &amp; Review</h3>
+        <p>Trust &amp; safety feature shipped across 3 markets — Turkey, India, and Indonesia — letting millions of buyers and sellers leave verified feedback.</p>
+        <span class="card-link">View case study</span>
       </div>
-    </div>
+    </a>
 
-    <section class="projects-section">
-      <div class="container">
-        <div class="projects-grid">
-
-          <article class="project-card">
-            <div class="card-image" data-type="fintech">
-              <div class="card-image-inner">
-                <img src="rate_and_review.png" alt="Rate & Review — OLX" />
-              </div>
-            </div>
-            <div class="card-body">
-              <span class="card-company">OLX Group</span>
-              <p class="card-tags">Fintech · Marketplace · 2022</p>
-              <h3 class="card-title">Rate &amp; Review</h3>
-              <p class="card-desc">Trust & safety feature shipped across 3 markets — Turkey, India, and Indonesia — letting millions of buyers and sellers leave verified feedback.</p>
-              <a href="case-study-rate-and-review.html" class="card-link">View case study
-                <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M1 11L11 1M11 1H4M11 1v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="card-image" data-type="travel">
-              <div class="card-image-inner">
-                <img src="AMA.png" alt="AMA – Agentic Agent for Travel" />
-              </div>
-            </div>
-            <div class="card-body">
-              <span class="card-company">Acai Travel</span>
-              <p class="card-tags">Traveltech · AI Product · 2025</p>
-              <h3 class="card-title">AMA – Agentic Agent for Travel</h3>
-              <p class="card-desc">AI-powered travel assistant cutting research time from hours to seconds — enabling agents to query fare rules and GDS manuals instantly.</p>
-              <a href="case-study-ama.html" class="card-link">View case study
-                <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M1 11L11 1M11 1H4M11 1v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="card-image" data-type="ai">
-              <div class="card-image-inner">
-                <img src="Synthetic_Data.png" alt="Synthetic Data" />
-              </div>
-            </div>
-            <div class="card-body">
-              <span class="card-company">AI Tooling</span>
-              <p class="card-tags">AI · Data Tooling · 2024</p>
-              <h3 class="card-title">Synthetic Data</h3>
-              <p class="card-desc">End-to-end tooling for generating and validating synthetic datasets — helping ML teams maintain quality without relying on sensitive real-world data.</p>
-              <a href="https://pitch.com/v/synthetic-data-wf9q5z" target="_blank" class="card-link">View on Pitch
-                <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M1 11L11 1M11 1H4M11 1v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="card-image" data-type="health">
-              <div class="card-image-inner">
-                <img src="dearkid.png" alt="Dear Kid" />
-              </div>
-            </div>
-            <div class="card-body">
-              <span class="card-company">BAU · Academic</span>
-              <p class="card-tags">Healthcare · Service Design · 2024</p>
-              <h3 class="card-title">Dear Kid</h3>
-              <p class="card-desc">Holistic reimagining of the paediatric care journey — reducing anxiety for children and families through thoughtful service touchpoints.</p>
-              <a href="https://www.behance.net/gallery/208557203/Dear-Kid-Service-Design-for-Healthcare-for-Children" target="_blank" class="card-link">View on Behance
-                <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M1 11L11 1M11 1H4M11 1v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="card-image" data-type="business">
-              <div class="card-image-inner">
-                <img src="vernita.png" alt="Vernita" />
-              </div>
-            </div>
-            <div class="card-body">
-              <span class="card-company">BAU · Academic</span>
-              <p class="card-tags">Business Design · 2024</p>
-              <h3 class="card-title">Vernita</h3>
-              <p class="card-desc">Zero-to-one business design for an emerging market — defining the service model, brand identity, and customer experience from scratch.</p>
-              <a href="https://www.behance.net/gallery/208581307/Vernita-Business-Design" target="_blank" class="card-link">View on Behance
-                <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M1 11L11 1M11 1H4M11 1v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="card-image" data-type="dashboard">
-              <div class="card-image-inner">
-                <img src="chooch.webp" alt="Chooch AI" />
-              </div>
-            </div>
-            <div class="card-body">
-              <span class="card-company">Chooch AI</span>
-              <p class="card-tags">AI · Dashboard · 2021</p>
-              <h3 class="card-title">Chooch AI Dashboard</h3>
-              <p class="card-desc">Enterprise dashboard for monitoring computer vision AI models — making complex outputs readable for non-technical stakeholders.</p>
-              <a href="https://dribbble.com/shots/15600941" target="_blank" class="card-link">View on Dribbble
-                <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M1 11L11 1M11 1H4M11 1v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
-            </div>
-          </article>
-
-        </div>
+    <a href="/case-study-ama.html" class="project-card wide magnetic reveal" data-label="OPEN">
+      <div class="thumb"><img src="/AMA.png" alt="AMA – Agentic Agent for Travel" loading="lazy"></div>
+      <div class="body">
+        <span class="work-tag">Acai Travel · Traveltech · AI Product · 2025</span>
+        <h3>AMA — Agentic Agent for Travel</h3>
+        <p>AI-powered travel assistant cutting research time from hours to seconds — enabling agents to query fare rules and GDS manuals instantly.</p>
+        <span class="card-link">View case study</span>
       </div>
-    </section>
-  </main>
+    </a>
 
-  <footer>
-    <div class="footer-inner">
-      <span class="footer-name">Sena Orucu · Barcelona, Spain</span>
-      <div class="footer-links">
-        <a href="https://www.linkedin.com/in/senaorucu/" target="_blank">LinkedIn ↗</a>
+    <a href="https://pitch.com/v/synthetic-data-wf9q5z" target="_blank" rel="noopener" class="project-card magnetic reveal" data-label="PITCH ↗">
+      <div class="thumb"><img src="/Synthetic_Data.png" alt="Synthetic Data" loading="lazy"></div>
+      <div class="body">
+        <span class="work-tag">AI Tooling · AI · Data Tooling · 2024</span>
+        <h3>Synthetic Data</h3>
+        <p>End-to-end tooling for generating and validating synthetic datasets — helping ML teams maintain quality without relying on sensitive real-world data.</p>
+        <span class="card-link">View on Pitch ↗</span>
       </div>
-    </div>
-  </footer>
+    </a>
 
-  <script src="main.js"></script>
-  <script data-goatcounter="https://senaorucu.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    <a href="https://www.behance.net/gallery/208557203/Dear-Kid-Service-Design-for-Healthcare-for-Children" target="_blank" rel="noopener" class="project-card magnetic reveal" data-label="BEHANCE ↗">
+      <div class="thumb"><img src="/dearkid.png" alt="Dear Kid" loading="lazy"></div>
+      <div class="body">
+        <span class="work-tag">BAU · Academic · Healthcare · Service Design · 2024</span>
+        <h3>Dear Kid</h3>
+        <p>Holistic reimagining of the paediatric care journey — reducing anxiety for children and families through thoughtful service touchpoints.</p>
+        <span class="card-link">View on Behance ↗</span>
+      </div>
+    </a>
+
+    <a href="https://www.behance.net/gallery/208581307/Vernita-Business-Design" target="_blank" rel="noopener" class="project-card magnetic reveal" data-label="BEHANCE ↗">
+      <div class="thumb"><img src="/vernita.png" alt="Vernita" loading="lazy"></div>
+      <div class="body">
+        <span class="work-tag">BAU · Academic · Business Design · 2024</span>
+        <h3>Vernita</h3>
+        <p>Zero-to-one business design for an emerging market — defining the service model, brand identity, and customer experience from scratch.</p>
+        <span class="card-link">View on Behance ↗</span>
+      </div>
+    </a>
+
+    <a href="https://dribbble.com/shots/15600941" target="_blank" rel="noopener" class="project-card magnetic reveal" data-label="DRIBBBLE ↗">
+      <div class="thumb"><img src="/chooch.webp" alt="Chooch AI" loading="lazy"></div>
+      <div class="body">
+        <span class="work-tag">Chooch AI · AI · Dashboard · 2021</span>
+        <h3>Chooch AI Dashboard</h3>
+        <p>Enterprise dashboard for monitoring computer vision AI models — making complex outputs readable for non-technical stakeholders.</p>
+        <span class="card-link">View on Dribbble ↗</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<footer>
+  <a href="https://www.linkedin.com/in/senaorucu/" class="footer-cta magnetic" target="_blank" rel="noopener">
+    Let's talk
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+  </a>
+  <div class="footer-meta">
+    <span>Sena Orucu · Barcelona, Spain</span>
+    <a href="https://www.linkedin.com/in/senaorucu/" target="_blank" rel="noopener" class="magnetic">LinkedIn ↗</a>
+  </div>
+</footer>
+
+<script src="/script.js"></script>
 </body>
 </html>

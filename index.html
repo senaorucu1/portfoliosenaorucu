@@ -1,412 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Sena Orucu — Senior Product Designer based in Barcelona, specialising in AI, Fintech, and Traveltech." />
-  <title>Sena Orucu — Senior Product Designer</title>
-  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <link rel="icon" href="favicon.ico" sizes="any" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
-  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-  <link rel="stylesheet" href="styles.css" />
-  <style>
-    /* ── HERO ── */
-    .hero {
-      padding: 5rem 0 4rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: end;
-    }
-
-    /* Giant decorative number */
-    .hero-stat {
-      position: absolute;
-      top: -0.1em;
-      right: -0.02em;
-      font-family: var(--font-display);
-      font-size: clamp(16rem, 28vw, 26rem);
-      font-weight: 300;
-      line-height: 1;
-      color: transparent;
-      -webkit-text-stroke: 1px var(--border);
-      pointer-events: none;
-      user-select: none;
-      letter-spacing: -0.04em;
-    }
-
-    .hero-left { position: relative; z-index: 1; }
-
-    .hero-availability {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.55rem;
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--secondary);
-      margin-bottom: 2.5rem;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .hero-availability:hover { color: var(--text); }
-
-    .dot {
-      width: 7px; height: 7px;
-      border-radius: 50%;
-      background: #22c55e;
-      display: inline-block;
-      position: relative;
-      flex-shrink: 0;
-    }
-
-    .dot::after {
-      content: '';
-      position: absolute;
-      inset: -3px;
-      border-radius: 50%;
-      background: #22c55e;
-      opacity: 0.3;
-      animation: pulse 2s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 0.3; }
-      50%       { transform: scale(1.8); opacity: 0; }
-    }
-
-    .hero h1 {
-      font-family: var(--font-display);
-      font-size: clamp(3.25rem, 6vw, 5.5rem);
-      font-weight: 300;
-      letter-spacing: -0.01em;
-      line-height: 1.04;
-      margin-bottom: 2.5rem;
-    }
-
-    .hero h1 em {
-      font-style: italic;
-      color: var(--accent);
-    }
-
-    .hero-actions {
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-      flex-wrap: wrap;
-    }
-
-    /* Right column */
-    .hero-right {
-      position: relative;
-      z-index: 1;
-      padding-bottom: 0.5rem;
-    }
-
-    .hero-role {
-      font-family: var(--font-display);
-      font-size: clamp(1.1rem, 2vw, 1.5rem);
-      font-weight: 300;
-      font-style: italic;
-      color: var(--secondary);
-      margin-bottom: 2rem;
-      line-height: 1.5;
-    }
-
-    .hero-bio {
-      font-size: 0.9375rem;
-      color: var(--secondary);
-      line-height: 1.8;
-      margin-bottom: 2.5rem;
-      max-width: 440px;
-    }
-
-    /* Stats row */
-    .hero-stats {
-      display: flex;
-      gap: 2.5rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--border);
-    }
-
-    .stat-item {}
-
-    .stat-num {
-      font-family: var(--font-display);
-      font-size: 2.25rem;
-      font-weight: 300;
-      line-height: 1;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.25rem;
-    }
-
-    .stat-label {
-      font-size: 0.75rem;
-      color: var(--secondary);
-      letter-spacing: 0.05em;
-    }
-
-    /* Divider */
-    .section-divider {
-      height: 1px;
-      background: var(--border);
-      margin: 5rem 0 4rem;
-    }
-
-    /* Featured heading */
-    .featured-header {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      margin-bottom: 2.5rem;
-    }
-
-    .featured-header h2 {
-      font-family: var(--font-display);
-      font-size: 2rem;
-      font-weight: 400;
-      letter-spacing: -0.01em;
-    }
-
-    .featured-header a {
-      font-size: 0.75rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--secondary);
-      transition: color 0.2s;
-    }
-
-    .featured-header a:hover { color: var(--text); }
-
-    .featured-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-    }
-
-    /* Marquee strip */
-    .marquee-wrap {
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 1rem 0;
-      overflow: hidden;
-      margin: 5rem 0 0;
-    }
-
-    .marquee-track {
-      display: flex;
-      gap: 3rem;
-      width: max-content;
-      animation: marquee 22s linear infinite;
-    }
-
-    .marquee-track span {
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-      font-weight: 300;
-      font-style: italic;
-      color: var(--secondary);
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-
-    .marquee-track span.dot-sep {
-      color: var(--accent);
-      font-style: normal;
-    }
-
-    @keyframes marquee {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-
-    @media (max-width: 900px) {
-      .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .hero-stat { display: none; }
-      .featured-grid { grid-template-columns: 1fr; }
-    }
-
-    @media (max-width: 600px) {
-      .hero { padding: 4rem 0 3rem; }
-      .hero-stats { gap: 1.5rem; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sena Orucu — Senior Product Designer</title>
+<meta name="description" content="Sena Orucu — Senior Product Designer based in Barcelona, specialising in AI, Fintech, and Traveltech.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
+<div class="cursor" id="cursor"></div>
+<div class="cursor-label" id="cursorLabel"></div>
+
+<header>
+  <a href="/index.html" class="logo magnetic">Sena Orucu</a>
   <nav>
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo">Sena Orucu</a>
-      <ul class="nav-links">
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="Sena_Orucu_CV.pdf" target="_blank" class="cv-link">CV</a></li>
-      </ul>
-      <button class="hamburger" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
+    <ul>
+      <li><a href="/projects.html" class="magnetic">Projects</a></li>
+      <li><a href="/about.html" class="magnetic">About</a></li>
+      <li><a href="/Sena_Orucu_CV.pdf" class="magnetic">CV ↗</a></li>
+    </ul>
   </nav>
+</header>
 
-  <div class="mobile-menu">
-    <a href="projects.html">Projects</a>
-    <a href="about.html">About</a>
-    <a href="Sena_Orucu_CV.pdf" target="_blank">CV ↗</a>
+<section class="hero">
+  <canvas id="grid-canvas"></canvas>
+  <div class="headline-wrap" id="headlineWrap">
+    <h1>
+      <span class="line"><b>SENA</b></span>
+      <span class="line"><b>ORUCU</b></span>
+    </h1>
   </div>
+  <p class="hero-sub">Senior Product Designer with 6+ years of experience across AI, Fintech, and TravelTech. I turn complex, ambiguous problems into intuitive products user trust—from zero-to-one experiences and AI-powered tools to safety features used by millions of marketplace users.</p>
+  <div class="hero-ctas">
+    <a href="/projects.html" class="btn primary magnetic" data-label="VIEW">See my work</a>
+    <a href="/Sena_Orucu_CV.pdf" class="btn ghost magnetic" data-label="OPEN">Download CV</a>
+  </div>
+  <div class="hero-meta">
+    <div class="stat"><b>6+</b><span>Years experience</span></div>
+    <div class="stat"><b>6</b><span>Case studies</span></div>
+  </div>
+</section>
 
-  <main>
-    <section class="hero">
-      <div class="container">
+<div class="marquee">
+  <div class="marquee-track">
+    <span>Product Design</span><span>User Research</span><span>Design Systems</span><span>AI Tooling</span><span>Fintech</span><span>Traveltech</span><span>Service Design</span><span>Prototyping</span><span>Figma</span><span>Facilitation</span>
+    <span>Product Design</span><span>User Research</span><span>Design Systems</span><span>AI Tooling</span><span>Fintech</span><span>Traveltech</span><span>Service Design</span><span>Prototyping</span><span>Figma</span><span>Facilitation</span>
+  </div>
+</div>
 
-        <!-- Decorative giant number -->
-        <span class="hero-stat" aria-hidden="true">6</span>
-
-        <div class="hero-grid">
-
-          <!-- Left -->
-          <div class="hero-left">
-            <a href="https://www.linkedin.com/in/senaorucu/" target="_blank" class="hero-availability fade-up">
-              <span class="dot"></span>
-              Open to opportunities
-            </a>
-
-            <h1 class="fade-up delay-1">
-              I design for<br><em>scale</em> —<br>products used<br>by millions
-            </h1>
-
-            <div class="hero-actions fade-up delay-2">
-              <a href="projects.html" class="btn btn-primary">
-                See my work
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                  <path d="M1 11L11 1M11 1H4M11 1v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </a>
-              <a href="Sena_Orucu_CV.pdf" target="_blank" class="btn btn-outline">Download CV</a>
-            </div>
-          </div>
-
-          <!-- Right -->
-          <div class="hero-right fade-up delay-2">
-            <p class="hero-role">Senior Product Designer<br>AI · Fintech · Traveltech · Barcelona</p>
-            <p class="hero-bio">
-              6+ years designing end-to-end digital products across three continents. I turn ambiguous problems into intuitive experiences — from zero-to-one features for global marketplaces to AI tooling used by enterprise teams.
-            </p>
-
-            <div class="hero-stats">
-              <div class="stat-item">
-                <div class="stat-num">6+</div>
-                <div class="stat-label">Years experience</div>
-              </div>
-<div class="stat-item">
-                <div class="stat-num">6</div>
-                <div class="stat-label">Case studies</div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Marquee strip -->
-        <div class="marquee-wrap fade-up delay-3">
-          <div class="marquee-track">
-            <span>Product Design</span><span class="dot-sep">·</span>
-            <span>User Research</span><span class="dot-sep">·</span>
-            <span>Design Systems</span><span class="dot-sep">·</span>
-            <span>AI Tooling</span><span class="dot-sep">·</span>
-            <span>Fintech</span><span class="dot-sep">·</span>
-            <span>Traveltech</span><span class="dot-sep">·</span>
-            <span>Service Design</span><span class="dot-sep">·</span>
-            <span>Prototyping</span><span class="dot-sep">·</span>
-            <span>Figma</span><span class="dot-sep">·</span>
-            <span>Facilitation</span><span class="dot-sep">·</span>
-            <!-- duplicate for seamless loop -->
-            <span>Product Design</span><span class="dot-sep">·</span>
-            <span>User Research</span><span class="dot-sep">·</span>
-            <span>Design Systems</span><span class="dot-sep">·</span>
-            <span>AI Tooling</span><span class="dot-sep">·</span>
-            <span>Fintech</span><span class="dot-sep">·</span>
-            <span>Traveltech</span><span class="dot-sep">·</span>
-            <span>Service Design</span><span class="dot-sep">·</span>
-            <span>Prototyping</span><span class="dot-sep">·</span>
-            <span>Figma</span><span class="dot-sep">·</span>
-            <span>Facilitation</span><span class="dot-sep">·</span>
-          </div>
-        </div>
-
+<section id="work">
+  <div class="section-head reveal">
+    <h2>Featured work</h2>
+    <a href="/projects.html" class="magnetic">View all →</a>
+  </div>
+  <div class="gallery">
+    <a href="/case-study-rate-and-review.html" class="work-card magnetic" data-label="OPEN">
+      <img src="/rate_and_review.png" alt="Rate &amp; Review — OLX" loading="lazy">
+      <div class="work-overlay">
+        <span class="work-tag">OLX Group · Fintech · Marketplace · 2022</span>
+        <h3>Rate &amp; Review</h3>
+        <p>Trust &amp; safety feature shipped across 3 markets — letting millions of buyers and sellers leave verified transaction feedback.</p>
       </div>
-    </section>
-
-    <!-- FEATURED PROJECTS -->
-    <section style="padding-top: 3rem;">
-      <div class="container">
-        <div class="featured-header fade-up">
-          <h2>Featured Projects</h2>
-          <a href="projects.html">View all →</a>
-        </div>
-
-        <div class="featured-grid">
-          <article class="project-card">
-            <div class="card-image">
-              <div class="card-image-inner">
-                <img src="rate_and_review.png" alt="Rate & Review — OLX" />
-              </div>
-            </div>
-            <div class="card-body">
-              <span class="card-company">OLX Group</span>
-              <p class="card-tags">Fintech · Marketplace · 2022</p>
-              <h3 class="card-title">Rate &amp; Review</h3>
-              <p class="card-desc">Trust & safety feature shipped across 3 markets — letting millions of buyers and sellers leave verified transaction feedback.</p>
-              <a href="case-study-rate-and-review.html" class="card-link">
-                View case study
-                <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
-                  <path d="M1 11L11 1M11 1H4M11 1v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </a>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="card-image">
-              <div class="card-image-inner">
-                <img src="AMA.png" alt="AMA – Agentic Agent for Travel" />
-              </div>
-            </div>
-            <div class="card-body">
-              <span class="card-company">Acai Travel</span>
-              <p class="card-tags">Traveltech · AI Product · 2025</p>
-              <h3 class="card-title">AMA – Agentic Agent for Travel</h3>
-              <p class="card-desc">AI-powered travel assistant enabling agents to query fare rules and GDS manuals in seconds instead of hours.</p>
-              <a href="case-study-ama.html" class="card-link">
-                View case study
-                <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
-                  <path d="M1 11L11 1M11 1H4M11 1v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </a>
-            </div>
-          </article>
-        </div>
+    </a>
+    <a href="/case-study-ama.html" class="work-card magnetic" data-label="OPEN">
+      <img src="/AMA.png" alt="AMA – Agentic Agent for Travel" loading="lazy">
+      <div class="work-overlay">
+        <span class="work-tag">Acai Travel · Traveltech · AI Product · 2025</span>
+        <h3>AMA — Agentic Agent for Travel</h3>
+        <p>AI-powered travel assistant enabling agents to query fare rules and GDS manuals in seconds instead of hours.</p>
       </div>
-    </section>
-  </main>
+    </a>
+    <div class="work-card more">
+      <a href="/projects.html" class="btn ghost magnetic">View all projects →</a>
+    </div>
+  </div>
+</section>
 
-  <footer>
-    <div class="footer-inner">
-      <span class="footer-name">Sena Orucu · Barcelona, Spain</span>
-      <div class="footer-links">
-        <a href="https://www.linkedin.com/in/senaorucu/" target="_blank">LinkedIn ↗</a>
+<section id="about">
+  <div class="about">
+    <p class="about-lead reveal">Trust isn't an outcome, it's a design decision. I work across the <span class="hl">product lifecycle</span>, turning research insights into thoughtful, intuitive experiences that solve real problems and earn users' trust.</p>
+    <div class="reveal">
+      <div class="tag-cloud">
+        <span>AI</span><span>Fintech</span><span>Traveltech</span><span>Design Systems</span><span>0→1</span>
       </div>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script src="main.js"></script>
-  <script data-goatcounter="https://senaorucu.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<footer>
+  <a href="https://www.linkedin.com/in/senaorucu/" class="footer-cta magnetic" target="_blank" rel="noopener">
+    Let's talk
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+  </a>
+  <div class="footer-meta">
+    <span>Sena Orucu · Barcelona, Spain</span>
+    <a href="https://www.linkedin.com/in/senaorucu/" target="_blank" rel="noopener" class="magnetic">LinkedIn ↗</a>
+  </div>
+</footer>
+
+<script src="/script.js"></script>
 </body>
 </html>
