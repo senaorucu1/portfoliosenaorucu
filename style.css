@@ -418,6 +418,7 @@ section{padding:clamp(4rem,8vw,7rem) clamp(1.25rem,4vw,3rem);}
   letter-spacing:-.005em;
 }
 .about-lead .hl{color:var(--coral);}
+.accent{color:var(--coral);}
 .about-note{
   margin-top:1.6rem;
   padding-top:1.6rem;
