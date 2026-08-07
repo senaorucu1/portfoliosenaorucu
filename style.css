@@ -548,15 +548,39 @@ section{padding:clamp(4rem,8vw,7rem) clamp(1.25rem,4vw,3rem);}
   font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;
   color:var(--muted);display:inline-flex;align-items:center;gap:.4rem;
 }
-.case-meta{
-  display:flex;flex-wrap:wrap;gap:clamp(1.5rem,4vw,3rem);
-  margin:2.2rem 0 0;
-  padding-top:2rem;
-  border-top:1px solid var(--line);
+
+.case-layout{
+  display:grid;
+  grid-template-columns:1fr 260px;
+  gap:clamp(2.5rem,5vw,5rem);
+  align-items:start;
 }
-.case-meta div{display:flex;flex-direction:column;gap:.4rem;}
+@media (max-width:900px){
+  .case-layout{grid-template-columns:1fr;}
+}
+.case-main{display:flex;flex-direction:column;gap:clamp(3rem,6vw,4.5rem);max-width:68ch;}
+.case-side{
+  position:sticky;top:110px;
+  display:flex;flex-direction:column;gap:2.25rem;
+}
+@media (max-width:900px){.case-side{position:static;}}
+
+.case-meta{display:flex;flex-direction:column;gap:1.3rem;}
+.case-meta div{display:flex;flex-direction:column;gap:.35rem;}
 .case-meta .label{font-family:var(--mono);font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);}
-.case-meta .value{font-family:var(--body);font-size:.95rem;color:var(--paper);}
+.case-meta .value{font-family:var(--body);font-size:.92rem;color:var(--paper);}
+
+.case-side-label{
+  font-family:var(--mono);font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:1rem;display:block;
+}
+.case-side-nav{display:flex;flex-direction:column;gap:.9rem;border-top:1px solid var(--line);padding-top:1.5rem;}
+.case-side-nav a{
+  font-family:var(--mono);font-size:.78rem;letter-spacing:.03em;
+  color:var(--muted);padding-left:.9rem;border-left:2px solid var(--line);
+  transition:color .25s var(--ease), border-color .25s var(--ease);
+}
+.case-side-nav a:hover, .case-side-nav a.active{color:var(--coral);border-color:var(--coral);}
 
 .case-image{border-radius:18px;overflow:hidden;margin-top:2.5rem;border:1px solid var(--line);}
 .case-image img{width:100%;display:block;}

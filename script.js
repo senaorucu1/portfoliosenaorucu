@@ -125,3 +125,18 @@ const io = new IntersectionObserver(entries=>{
   entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
 }, {threshold:0.15});
 document.querySelectorAll('.reveal').forEach(el=> io.observe(el));
+
+/* ---------- case study side-nav active tracking ---------- */
+const sideNavLinks = document.querySelectorAll('.case-side-nav a');
+if(sideNavLinks.length){
+  const secIO = new IntersectionObserver(entries=>{
+    entries.forEach(en=>{
+      const link = document.querySelector(`.case-side-nav a[href="#${en.target.id}"]`);
+      if(link && en.isIntersecting){
+        sideNavLinks.forEach(l=>l.classList.remove('active'));
+        link.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-35% 0px -50% 0px'});
+  document.querySelectorAll('.case-section[id]').forEach(s=>secIO.observe(s));
+}
