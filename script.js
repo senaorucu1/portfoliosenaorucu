@@ -140,3 +140,12 @@ if(sideNavLinks.length){
   }, {rootMargin:'-35% 0px -50% 0px'});
   document.querySelectorAll('.case-section[id]').forEach(s=>secIO.observe(s));
 }
+
+/* ---------- goatcounter analytics ---------- */
+(function(){
+  const s = document.createElement('script');
+  s.dataset.goatcounter = 'https://senaorucu.goatcounter.com/count';
+  s.async = true;
+  s.src = 'https://gc.zgo.at/count.js';
+  document.head.appendChild(s);
+})();
